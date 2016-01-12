@@ -59,7 +59,7 @@ end
 defmodule Bubblesort2 do
 
   @moduledoc """
-  This attempt is about 5x faster than Bubblesort, but is still horrendously slow.
+  This attempt is about 5x faster than `Bubblesort`, but is still horrendously slow.
 
   https://en.wikipedia.org/wiki/Bubble_sort
   """
@@ -102,7 +102,7 @@ defmodule Mergesort do
 
   @moduledoc """
   This is a top-down merge sort, I still need to implement the bottom-up version. Quite a bit
-  slower than Quicksort, but significantly faster than the others.
+  slower than `Quicksort`, but significantly faster than the others.
 
   https://en.wikipedia.org/wiki/Merge_sort
   """
@@ -175,8 +175,8 @@ end
 defmodule Quicksort2 do
 
   @moduledoc """
-  This seems faster that Quicksort on smaller lists, but much slower on larger ones, even
-  slower than Mergesort. This is likely because `Enum.partition` uses Erlang's `foldl` under
+  This seems faster that `Quicksort` on smaller lists, but much slower on larger ones, even
+  slower than `Mergesort`. This is likely because `Enum.partition` uses Erlang's `foldl` under
   the skin, which I imagine is more efficient than what I'm doing.
 
   As a side note, I prefer using overloads with guards to the `if` statements used in the
@@ -217,6 +217,7 @@ IO.inspect quicksort: quicksort, length: length(quicksort), runtime: quicksort_r
 # quick sort
 {quicksort_runtime2, quicksort2} = :timer.tc(fn -> Quicksort2.sort(list) end)
 IO.inspect quicksort2: quicksort2, length: length(quicksort2), runtime: quicksort_runtime2
+^quicksort2 = Quicksort.sort(list)
 
 # merge sort
 {mergesort_runtime, mergesort} = :timer.tc(fn -> Mergesort.sort(list) end)
